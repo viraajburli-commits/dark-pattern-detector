@@ -9,14 +9,18 @@
 
 > **Main takeaway:** a dark-pattern detector that scores 0.95 on the standard 2019 data drops to 0.59 on newer data, close to guessing. We measured that drop on live 2026 websites and fixed most of it with newer training data.
 
+## What makes it different
+1. **Tested on live 2026 websites, not just old data.** We collected our own held-out set from 15 real sites and tested a 2019-trained detector across 2019, 2024 and 2026 data.
+2. **It shows why it flagged something.** Each flag lists the words behind it, taken straight from the model's weights. Example: "Only 2 left in your size" is flagged because of *left, only*.
+3. **It rates the whole page, not just one sentence.** A page pressure score (Low, Medium, High) says how many kinds of pressure the page stacks and what to check before paying. Example: a sneaker page with a countdown, "Only 2 left" and "38 people bought this" scores **High**. On held-out live sites, its flagged trick counts per site track the real counts (correlation 0.75 across 15 sites).
+
 ## The problem
 "Only 2 left!", fake countdown timers and "No thanks, I don't want to save money" buttons push people to spend before they think. 76% of 642 sites and apps checked in a 2024 international review used at least one ([FTC](https://www.ftc.gov/news-events/news/press-releases/2024/07/ftc-icpen-gpen-announce-results-review-use-dark-patterns-affecting-subscription-services-privacy)). 1 in 5 Australians say these tricks made them spend more than they meant to, and young shoppers are 65% more likely to ([CPRC, 2022](https://cprc.org.au/dupedbydesign)). Our user is a teenager with their first debit card, who has the least money to lose. By our rough estimate, US shoppers lose $1.5 to $4 billion a year to purchases they didn't mean to make ([how we got this](REPORT.md#how-much-money-is-that-our-estimate)).
 
 ## What we built
 - **In:** text pasted from a product or checkout page.
 - **Out:** each manipulative phrase highlighted, with its trick type (urgency, scarcity, social proof, misdirection and so on) and one plain sentence on what it wants you to do.
-- **Why it was flagged:** for each flag, the app shows the words that triggered it (for "Only 2 left in your size": *left, only*). Because the model is linear, this is its real reasoning, not a guess.
-- **Page pressure score:** the app rates the whole page Low, Medium or High by how many kinds of pressure it stacks, and gives one thing to check before paying for each (for example "check whether the timer resets if you reload the page"). On our held-out live sites, the number of tricks it flags per site tracks the real number closely (Spearman correlation 0.75 across 15 sites).
+- **Plus:** the trigger words behind each flag, and a page pressure score with one thing to check before paying for each kind of trick (for example "check whether the timer resets if you reload the page").
 - **Use:** before paying, a teen pastes the page into our Gradio app and sees that "Hurry! Sale ends in 02:14:37" is fake urgency. That moment of doubt is the point.
 
 ## What we added
