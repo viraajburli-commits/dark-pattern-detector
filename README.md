@@ -15,6 +15,8 @@
 ## What we built
 - **In:** text pasted from a product or checkout page.
 - **Out:** each manipulative phrase highlighted, with its trick type (urgency, scarcity, social proof, misdirection and so on) and one plain sentence on what it wants you to do.
+- **Why it was flagged:** for each flag, the app shows the words that triggered it (for "Only 2 left in your size": *left, only*). Because the model is linear, this is its real reasoning, not a guess.
+- **Page pressure score:** the app rates the whole page Low, Medium or High by how many kinds of pressure it stacks, and gives one thing to check before paying for each (for example "check whether the timer resets if you reload the page"). On our held-out live sites, the number of tricks it flags per site tracks the real number closely (Spearman correlation 0.75 across 15 sites).
 - **Use:** before paying, a teen pastes the page into our Gradio app and sees that "Hurry! Sale ends in 02:14:37" is fake urgency. That moment of doubt is the point.
 
 ## What we added
@@ -42,7 +44,7 @@ Our own idea, with our own question: **does a detector trained on 2019 data stil
 - **It protects shoppers unequally.** Trained on 2019 data, it misses 77% of tricks on the mostly Indian 2024 data.
 - **Part of the 2019 score is a shortcut.** A model that only counts length, digits, "!" and capitals gets F1 0.80 there.
 
-**Where it fails:** new wording such as "116 booked" or "I'll Shop Without A Discount"; rule text that sounds urgent, such as "Cancel up to 24 hours in advance"; and visual tricks it can't see. The live set is small (35 tricks after removing overlaps), so its intervals are about ±0.09, and one person did the labelling. Details are in the [full report](REPORT.md#results).
+**Where it fails:** plain prices sometimes get flagged ("Running Sneakers $129.99", 80%); the trigger words (*99, running*) show the user why, so they can judge it. It also misses new wording such as "116 booked" or "I'll Shop Without A Discount", flags rule text that sounds urgent, such as "Cancel up to 24 hours in advance", and can't see visual tricks. The live set is small (35 tricks after removing overlaps), so its intervals are about ±0.09, and one person did the labelling. Details are in the [full report](REPORT.md#results).
 
 ## What we'd do next
 1. Grow the live set to several hundred tricks, with two people labelling each one independently.
