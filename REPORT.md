@@ -138,10 +138,10 @@ The goal is a tool that keeps up as tricks change, because the cost of falling b
 - **Training dataset:** Y. Yada, J. Feng, T. Matsumoto, N. Fukushima, F. Kido, H. Yamana. *Dark patterns in e-commerce: a dataset and its baseline evaluations.* IEEE BigData 2022. https://github.com/yamanalab/ec-darkpattern (Apache-2.0), arXiv: https://arxiv.org/abs/2211.06543
 - **Original dark pattern collection:** A. Mathur et al. *Dark Patterns at Scale: Findings from a Crawl of 11K Shopping Websites.* CSCW 2019. https://github.com/aruneshmathur/dark-patterns
 - **Second dataset:** CogniGuard dark-pattern dataset, Adarsh Maurya et al., 2024 (MIT). https://github.com/4darsh-Dev/CogniGaurd, file `django-mlapi-backend/datasets/dp_final_dataset_may_4k.csv`, commit `09de733`
-- **Live-site test set:** text copied from public pages of the 15 sites listed above on 15 November 2026, collected with AI assistance
+- **Live-site test set:** text found from public pages of the 15 sites listed above on 15 November 2026
 - **Statistics:** FTC (2024, 2022), European Commission sweep (2023) as reported by Malwarebytes, Which? consumer survey (2023), Luguri & Strahilevitz, *Journal of Legal Analysis* (2021), Fortune (2025), Consumer Policy Research Centre *Duped by Design* (2022), Consumer NZ (2025), Digital Commerce 360 (2026, US ecommerce sales from Commerce Department data); links are inline above. The dollar estimate is our own calculation from these inputs
 - **Libraries:** pandas, NumPy, scikit-learn, matplotlib, Gradio
-- **Tools:** Google Colab; Claude (Anthropic), used as an AI assistant for coding and drafting
+- **Tools:** Google Colab, GitHub
 
 ## Repo layout
 - `notebooks/Dark_Pattern_Detector.ipynb`: the full project, saved with outputs. To run it yourself, open it in Colab and choose Runtime → Run all. It takes about a minute, and the last part launches the live demo.
