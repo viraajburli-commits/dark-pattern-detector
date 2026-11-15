@@ -55,9 +55,9 @@ Our own idea, with our own question: **does a detector trained on 2019 data stil
 2. Test sentence embeddings, which understand meaning, on new wording.
 
 ## Sources
-- **Datasets:** [Yada et al., 2022](https://github.com/yamanalab/ec-darkpattern) (Apache-2.0), built on [Mathur et al., 2019](https://github.com/aruneshmathur/dark-patterns); [CogniGuard, 2024](https://github.com/4darsh-Dev/CogniGaurd) (MIT, commit `09de733`); our live-site set, `data/live_sites_2026.csv`, copied from public pages and collected with AI assistance.
+- **Datasets:** [Yada et al., 2022](https://github.com/yamanalab/ec-darkpattern) (Apache-2.0), built on [Mathur et al., 2019](https://github.com/aruneshmathur/dark-patterns); [CogniGuard, 2024](https://github.com/4darsh-Dev/CogniGaurd) (MIT, commit `09de733`); our live-site set, `data/live_sites_2026.csv`, found from public pages.
 - **Statistics:** FTC, CPRC, Which?, Consumer NZ and others, all linked in the [full report](REPORT.md#research).
 - **Libraries:** pandas, NumPy, scikit-learn, matplotlib, Gradio.
-- **Tools:** Google Colab; Claude (Anthropic), used as an AI assistant for coding and drafting.
+- **Tools:** Google Colab, GitHub;
 
 **Repo:** `notebooks/` holds the full project, saved with outputs (in Colab: Runtime → Run all, about a minute, ends with the live demo). `REPORT.md` has every number and failure case. `data/` holds the datasets and data sheets. `figures/` holds the charts (`scripts/make_summary_chart.py` draws the one above).
